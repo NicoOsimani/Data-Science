@@ -1,0 +1,65 @@
+{
+  "duration": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 21,
+    "confused_with": {}
+  },
+  "people_per_room": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "num_rooms": {
+    "precision": 0.9310344827586207,
+    "recall": 1.0,
+    "f1-score": 0.9642857142857143,
+    "support": 27,
+    "confused_with": {}
+  },
+  "room_type": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "time_unit": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 20,
+    "confused_with": {}
+  },
+  "num_people": {
+    "precision": 1.0,
+    "recall": 0.9166666666666666,
+    "f1-score": 0.9565217391304348,
+    "support": 12,
+    "confused_with": {
+      "num_rooms": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.9767441860465116,
+    "recall": 0.9882352941176471,
+    "f1-score": 0.9824561403508771,
+    "support": 85
+  },
+  "macro avg": {
+    "precision": 0.9885057471264368,
+    "recall": 0.9861111111111112,
+    "f1-score": 0.9868012422360248,
+    "support": 85
+  },
+  "weighted avg": {
+    "precision": 0.9780933062880325,
+    "recall": 0.9882352941176471,
+    "f1-score": 0.9825173547679941,
+    "support": 85
+  },
+  "accuracy": 0.9975845410628019
+}

@@ -1,0 +1,117 @@
+version: "3.1"
+
+rules:
+- rule: activating the booking form
+  steps:
+  - intent: book_room
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: activating the booking form with number of rooms
+  steps:
+  - intent: book_room_with_number
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: activating the booking form with number of people
+  condition:
+  - active_loop: people_per_room_form
+  steps:
+  - action: people_per_room_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_set_num_rooms
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: activating the people form
+  steps:
+  - intent: book_room_with_num_people
+  - action: people_per_room_form
+  - active_loop: people_per_room_form
+
+- rule: deactivating the booking form
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_booking
+
+- rule: activating the cleaning form, cleaning intent
+  steps:
+  - intent: schedule_room_cleaning
+  - action: cleaning_form
+  - active_loop: cleaning_form
+
+- rule: deactivating the cleaning form
+  condition:
+  - active_loop: cleaning_form
+  steps:
+  - action: cleaning_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_schedule_cleaning
+
+- rule: deactivating the cleaning form, time is right away
+  condition:
+  - active_loop: cleaning_form
+  steps:
+  - intent: inform_cleaning_time_right_away
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_schedule_cleaning
+
+- rule: say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: greet user whenever the user greets
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: greet user whenever the user greets 2
+  steps:
+  - intent: thankyou
+  - action: utter_thankyou
+
+- rule: start the bot
+  steps:
+  - intent: start
+  - action: utter_greet
+
+- rule: ask for faq
+  steps:
+  - intent: faq
+  - action: utter_faq
+
+- rule: faq query check in out
+  steps:
+  - intent: query_check_in_out
+  - action: utter_query_check_in_out
+
+- rule: faq ask cancellation policy
+  steps:
+  - intent: ask_cancellation_policy
+  - action: utter_ask_cancellation_policy
+
+- rule: faq ask restaurant
+  steps:
+  - intent: ask_restaurant
+  - action: utter_ask_restaurant
+
+- rule: faq ask breakfast
+  steps:
+  - intent: ask_breakfast
+  - action: utter_ask_breakfast
+
+- rule: return
+  steps:
+  - intent: return
+  - action: utter_return

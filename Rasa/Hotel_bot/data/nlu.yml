@@ -1,0 +1,273 @@
+version: "3.1"
+
+nlu:
+- intent: faq
+  examples: |
+    - faq
+    - faqs
+    - FAQ
+    - FAQs
+    - Frequent Asked Questions
+    - frequent asked questions
+  
+- intent: start
+  examples: |
+    - start
+    - open
+    - begin
+    - init
+
+- intent: re_start
+  examples: |
+    - restart
+    - re-start
+    - reopen
+    - re-open
+    - reinit
+    - re-init
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: give_pref
+  examples: |
+    - [Simple](room_type)
+    - [Deluxe](room_type)
+
+- intent: book_room
+  examples: |
+    - I would like to book a room
+    - I would like to book room
+    - I would like to book rooms
+    - I want to book a room to stay 
+    - I want to stay here
+    - I want room
+    - I want a room
+    - I want a room here
+    - I want a room to stay
+    - I want to book a room
+    - I want to book rooms
+
+- intent: number_of_rooms_info
+  examples: |
+    - [2]{"entity":"num_rooms", "value":"2"} rooms
+    - [1]{"entity":"num_rooms", "value":"1"} room
+    - [1]{"entity":"num_rooms", "value":"1"}
+    - [2]{"entity":"num_rooms", "value":"2"}
+    - [3]{"entity":"num_rooms", "value":"3"} rooms
+    - [one]{"entity":"num_rooms", "value":"1"} room
+    - [two]{"entity":"num_rooms", "value":"2"} rooms
+    - [three]{"entity":"num_rooms", "value":"3"} rooms
+    - [one]{"entity": "num_rooms", "value":"1"} room
+    - [two]{"entity":"num_rooms", "value":"2"} rooms
+    - [three]{"entity":"num_rooms", "value":"3"} rooms
+    - [four]{"entity":"num_rooms", "value":"4"} rooms
+    - [five]{"entity":"num_rooms", "value":"5"} rooms
+    - [six]{"entity":"num_rooms", "value":"6"} rooms
+    - [seven]{"entity":"num_rooms", "value":"7"} rooms
+    - [eight]{"entity":"num_rooms", "value":"8"} rooms
+    - [nine]{"entity":"num_rooms", "value":"9"} rooms
+    - [ten]{"entity":"num_rooms", "value":"10"} rooms
+
+- intent: people_per_room_info
+  examples: |
+    - [Single](people_per_room)
+    - [Double](people_per_room)
+    - [Triple](people_per_room)
+
+- intent: book_room_with_num_people
+  examples: |
+    - I would like to book a room for [2]{"entity":"num_people", "value":"2"} people
+    - I would like to book a room for [3]{"entity":"num_people", "value":"3"} people
+    - I would like to book a room for [5]{"entity":"num_people", "value":"5"} people
+    - I want to book rooms for [6]{"entity":"num_people", "value":"6"} people
+    - I would like to book a room for [10]{"entity":"num_people", "value":"10"} people
+    - I want to book rooms for [20]{"entity":"num_people", "value":"20"} people
+    - I would like to book [4]{"entity":"num_people", "value":"4"} rooms for [8]{"entity":"num_people", "value":"10"} people
+    - I woulld like to book a room for [10]{"entity":"num_people", "value":"10"} people
+    - I would like to book [one]{"entity":"num_rooms", "value":"1"} room for two{"entity":"num_people", "value":"2"} people
+    - I want a room for [3]{"entity":"num_people", "value":"3"} people
+    - I want to book a room for [one]{"entity":"num_people", "value":"1"} person.
+    - I want to book a room for [1]{"entity":"num_people", "value":"1"} person
+
+- intent: book_room_with_number
+  examples: |
+    - I would like to book [two]{"entity":"num_rooms", "value": "2"} rooms
+    - I want to book [three]{"entity":"num_rooms", "value":"3"} rooms
+    - I want to book [two]{"entity":"num_rooms", "value": "2"} rooms for my family
+    - I would like to book [2]{"entity":"num_rooms", "value": "2"} rooms
+    - I would like to book [3]{"entity":"num_rooms", "value": "3"} rooms
+    - I would like to book [4]{"entity":"num_rooms", "value": "4"} rooms
+    - I would like to book [2]{"entity":"num_rooms", "value": "2"} rooms to stay
+    - I want [3]{"entity":"num_rooms", "value": "3"} rooms
+    - I want [one]{"entity":"num_rooms", "value": "1"} room
+    - I want to book [one]{"entity":"num_rooms", "value": "1"} room
+    - I need [two]{"entity":"num_rooms", "value": "2"} rooms
+    - I would like to book 20{"entity":"num_rooms", "value": "20"} rooms.
+    - I would like to book 30{"entity":"num_rooms", "value": "30"} rooms.
+    - I would like to book 34{"entity":"num_rooms", "value": "34"} rooms.
+    - I would like to book 8{"entity":"num_rooms", "value": "8"} rooms.
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: thankyou
+  examples: |
+    - thanks
+    - thanks, thats great
+    - thank you
+    - thanks man
+    - thanks for the help
+
+- intent: query_check_in_out
+  examples: |
+    - What are your check-in timings?
+    - What are the checkin timings?
+    - What are checkin timings?
+    - Checkin timings?
+    - Can I know the check-in timings?
+    - What are your check-out timings?
+    - What are the check-out timings?
+    - What are checkout timings?
+    - Checkout timings?
+    - Can I know the checkout timings?
+
+- intent: ask_cancellation_policy
+  examples: |
+    - What is your cancellation policy?
+    - Can I know your cancellatoin policy?
+    - Tell me your cancellation policy?
+    - Is there any cancellation policy?
+
+- intent: ask_restaurant
+  examples: |
+    - Does the hotel have a restaurant?
+    - Do you have a restaurant?
+    - Does this hotel have restaurant?
+    - Is there a restaurant in this hotel?
+    - Do you a restaurant here?
+    - What are the timings of your restaurant?
+    - What are the restaurant timings?
+    - Restaurant timings?
+    - Can i know the restaurant timings?
+    - Tell me the timings of this restaurant
+
+- intent: ask_breakfast
+  examples: |
+    - Does the hotel offer breakfast?
+    - Does this hotel give breakfast?
+    - Can i get breakfast in this hotel?
+    - Can i get breakfast here?
+    - Is breakfast available in this hotel?
+    - Is breakfast available here?
+    - What are the breakfast timings?
+    - What are the timings of breakfast?
+    - Breakfast timings?
+    - Can i know the breakfat timings?
+    - Tell me the timings of breakfast
+    - Tell me the breakfast timings
+
+- intent: see_reservations
+  examples: |
+    - Reservations
+    - Reservation
+    - My reservation
+    - My reservations
+    - See reservation
+    - See reservations
+    - See my reservation
+    - See my reservations
+
+- intent: schedule_room_cleaning
+  examples: |
+    - I would like to have my room cleaned
+    - I want to have my room cleaned
+    - I want my room to be cleaned
+    - Can i get my room cleaned?
+    - Can you please clean my room?
+    - Can you get my room cleaned?
+    - Will you get my room cleaned?
+    - Will you clean my room?
+    - Clean my room
+    - I want my room to be neat and clean
+
+- intent: see_cleaning_schedule
+  examples: |
+    - Cleaning schedule
+    - See cleaning schedule
+    - Schedule
+    - Cleaning schedule for my room
+    - See cleaning schedule for my room
+
+- intent: inform_cleaning_time_right_away
+  examples: |
+    - Could you send someone right now?
+    - Can you send someone right now?
+    - Can you send someone immediately?
+    - Can you send someone urgently?
+    - I want someone to clean right now
+    - Can you send someone now?
+    - Could you send someone now?
+    - I want it to be cleaned now
+    - Right now
+    - Now
+  
+- intent: inform_cleaning_time
+  examples: |
+    - Could you send someone in [2](duration) [hours](time_unit)?
+    - Can you get it cleaned after [3](duration) [hours](time_unit)?
+    - Can you get it cleaned after [1](duration) [hr](time_unit)?
+    - I want it to be cleaned after [30](duration) [minutes](time_unit)?
+    - Can you get it cleaned after [45](duration) [minutes](time_unit)?
+    - Can you get it cleaned after [15](duration) [min](time_unit)?
+    - can you get it cleaned in [two]{"entity":"duration", "value":"2"} [hours](time_unit)
+    - In [2](duration) [hours](time_unit)
+    - After [30](duration) [minutes](time_unit)
+    - After [10](duration) [min](time_unit)
+    - In [15](duration) [m](time_unit)
+    - After [1](duration) [hour](time_unit)
+    - In [1](duration) [minute](time_unit)
+    - In [5](duration) [s](time_unit)
+    - In [one]{"entity":"duration", "value": "1"} [h](time_unit)
+    - After [two]{"entity":"duration", "value":"2"} [hrs](time_unit)
+    - In [three]{"entity":"duration", "value":"3"} [hours](time_unit)
+    - After [fifteen]{"entity":"duration", "value":"15"} [mins](time_unit)
+    - After [forty five]{"entity":"duration", "value":"45"} [minutes](time_unit)
+    - After [thirty]{"entity":"duration", "value":"30"} [minutes](time_unit)
+
+- synonym: "hour"
+  examples: |
+    - hour
+    - hours
+    - hrs
+    - h
+
+- synonym: "min"
+  examples: |
+    - minute
+    - minutes
+    - mins

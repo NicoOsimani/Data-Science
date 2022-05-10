@@ -1,0 +1,228 @@
+version: "3.1"
+
+intents:
+  - greet
+  - book_room
+  - book_room_with_num_people
+  - book_room_with_number
+  - number_of_rooms_info
+  - people_per_room_info
+  - see_reservations
+  - schedule_room_cleaning
+  - see_cleaning_schedule
+  - inform_cleaning_time_right_away
+  - inform_cleaning_time
+  - goodbye
+  - thankyou
+  - give_pref
+  - start
+  - re_start
+  - query_check_in_out
+  - ask_cancellation_policy
+  - ask_restaurant
+  - ask_breakfast
+  - faq
+  - return
+
+entities:
+  - room_type
+  - num_rooms
+  - num_people
+  - people_per_room
+  - num_rooms_res
+  - room_type_res
+  - duration
+  - time_unit
+  - hour
+  - minute
+  - suff
+
+slots:
+  room_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type
+        conditions:
+          - active_loop: booking_form
+      - type: from_entity
+        entity: room_type
+
+  num_rooms:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_rooms
+        conditions:
+          - active_loop: booking_form
+      - type: from_entity
+        entity: num_rooms
+
+  people_per_room:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: people_per_room
+        conditions:
+          - active_loop: people_per_room_form
+      - type: from_entity
+        entity: people_per_room
+
+  num_people:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_people
+
+  num_rooms_res:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_rooms_res
+
+  room_type_res:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type_res
+
+  duration:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: duration
+        conditions:
+          - active_loop: cleaning_form
+      - type: from_entity
+        entity: duration
+
+  time_unit:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time_unit
+  
+  hour:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hour
+
+  minute:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: minute
+
+  suff:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: suff
+
+actions:
+  - action_set_num_rooms
+  - action_booking
+  - action_see_reservations
+  - action_schedule_cleaning
+  - action_see_cleaning_schedule
+
+forms:
+  people_per_room_form:
+    required_slots:
+      - people_per_room
+
+  booking_form:
+    required_slots:
+      - num_rooms
+      - room_type
+
+  cleaning_form:
+    required_slots:
+      - duration
+
+responses:
+  utter_ask_num_rooms:
+    - text: How many rooms would you like to book?
+
+  utter_ask_people_per_room:
+    - text: Do you want to book single, double or triple?
+      buttons:
+        - title: Single
+          payload: /people_per_room_info{{"people_per_room":"1"}}
+        - title: Double
+          payload: /people_per_room_info{{"people_per_room":"2"}}
+        - title: Triple
+          payload: /people_per_room_info{{"people_per_room":"3"}}
+
+  utter_ask_room_type:
+    - text: What type of room would you like to book?
+      buttons:
+        - title: Simple
+          payload: /give_pref{{"room_type":"Simple"}}
+        - title: Deluxe
+          payload: /give_pref{{"room_type":"Deluxe"}}
+
+  utter_no_reservations:
+    - text: We have no reservation yet. Would you like to book a room?
+      buttons:
+        - title: Book a room
+          payload: /book_room
+
+  utter_ask_duration:
+    - text: When should i arrange for cleaning?
+
+  utter_no_cleaning_scheduled:
+    - text: We have no cleaning scheduled. Would you like to have your room cleaned?
+      buttons:
+        - title: Clean my room
+          payload: /schedule_room_cleaning
+
+  utter_query_check_in_out:
+    - text: Check-in time starts at 4 PM. Minimum check-in age is 18. Check-out time is 11 AM. Please contact the reception for early check-in or late checkout requests.
+  
+  utter_ask_cancellation_policy:
+    - text: The booking deposit is refundable if the cancellation occurs at least 15 days before arrival. For cancellations made after this limit, a penalty will be imposed based on the cancellation policy.
+  
+  utter_ask_restaurant:
+    - text: The hotel has a restaurant. With our menu we strive to reflect the historic art and the spirit of our neighborhood by offering a glimpse into what makes our area unique. Our restaurant serves a dazzling 24-hour menu.
+  
+  utter_ask_breakfast:
+    - text: The hotel provides its guests with a free made-to-order breakfast each morning. Monday through Friday breakfast is 6 AM to 9 AM. On Saturday and Sunday, we are open from 7 AM to 10:30 AM.
+  
+  utter_greet:
+    - text: Hey there! This is the Hotel Bot! Book a room, set a cleaning schedule or ask for FAQs!
+
+  utter_re_start:
+    - text: Do you want to restart the bot?
+      buttons:
+        - title: Restart the bot
+          payload: /restart
+  
+  utter_do_not_understand:
+    - text: Sorry, i didn't understand that.
+      buttons:
+        - title: Retry
+          payload: /return
+
+  utter_default:
+    - text: I'm sorry, i didn't understand that.
+      buttons:
+        - title: Retry
+          payload: /return
+
+  utter_thankyou:
+    - text: Great, hope to see ya again!
+
+  utter_goodbye:
+    - text: Bye!
+
+  utter_faq:
+    - text: You can ask about check-in and check-out timings, cancellation policy, restaurant and breakfast.
+
+  utter_return:
+    - text: This is the Hotel Bot!
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

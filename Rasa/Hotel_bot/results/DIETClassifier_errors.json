@@ -1,0 +1,61 @@
+[
+  {
+    "text": "I would like to book one room for two{\"entity\":\"num_people\", \"value\":\"2\"} people",
+    "entities": [
+      {
+        "start": 21,
+        "end": 24,
+        "value": "1",
+        "entity": "num_rooms"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_rooms",
+        "start": 21,
+        "end": 24,
+        "confidence_entity": 0.7713280320167542,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "num_rooms",
+        "start": 34,
+        "end": 37,
+        "confidence_entity": 0.7393256425857544,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want to book a room for one person.",
+    "entities": [
+      {
+        "start": 26,
+        "end": 29,
+        "value": "1",
+        "entity": "num_people"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_rooms",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.6769983172416687,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+version: "3.1"
+
+stories:
+- story: see reservations
+  steps:
+  - intent: see_reservations
+  - action: action_see_reservations
+
+- story: cleaning schedule
+  steps:
+  - intent: see_cleaning_schedule
+  - action: action_see_cleaning_schedule
+
+- story: restart the bot
+  steps:
+  - intent: re_start
+  - action: utter_re_start
+
+- story: do not understand when they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_do_not_understand
